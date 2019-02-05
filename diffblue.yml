@@ -1,0 +1,222 @@
+# Tested on Deeptest release 1.10.0
+cbmcArguments:
+  cover-function-only: false
+  depth: false
+  do-not-test-methods-with-access: [ private ]
+  java-generate-no-comments: true
+  no-trivial-tests: true
+phases:
+-
+  timeout: 300
+  cbmcArguments:
+    java-assume-inputs-non-null: true
+    max-nondet-array-length: 10
+    string-non-empty: true
+    unwind: 1
+-
+  timeout: 300
+  cbmcArguments:
+    max-nondet-array-length: 20
+    unwind: 2
+-
+  timeout: 300
+  cbmcArguments:
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 3
+units:
+  - target:
+    - dir: target/classes
+      file: org/mongojack/internal/util/DocumentSerializationUtils.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/util/DocumentSerializationUtils.java
+    # Child of DocumentSerializationUtils.class
+    - dir: target/classes
+      file: org/mongojack/Aggregation.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/Aggregation.java
+    # Child of DocumentSerializationUtils.class
+    - dir: target/classes
+      file: org/mongojack/DBQuery.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/DBQuery.java
+    # Child of DocumentSerializationUtils.class
+    - dir: target/classes
+      file: org/mongojack/DBRef.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/DBRef.java
+    # Child of DocumentSerializationUtils.class
+    - dir: target/classes
+      file: org/mongojack/MongoJsonMappingException.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/MongoJsonMappingException.java
+    # Child of DocumentSerializationUtils.class
+    - dir: target/classes
+      file: org/mongojack/internal/ObjectIdSerializer.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/ObjectIdSerializer.java
+    # Child of DocumentSerializationUtils.class
+    - dir: target/classes
+      file: org/mongojack/internal/object/BsonObjectGenerator.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/object/BsonObjectGenerator.java
+    # Child of DocumentSerializationUtils.class
+    - dir: target/classes
+      file: org/mongojack/internal/query/CollectionQueryCondition.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/query/CollectionQueryCondition.java
+    # Child of DocumentSerializationUtils.class
+    - dir: target/classes
+      file: org/mongojack/internal/query/CompoundQueryCondition.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/query/CompoundQueryCondition.java
+    # Child of DocumentSerializationUtils.class
+    - dir: target/classes
+      file: org/mongojack/internal/query/QueryCondition.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/query/QueryCondition.java
+    # Child of DocumentSerializationUtils.class
+    - dir: target/classes
+      file: org/mongojack/internal/query/SimpleQueryCondition.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/query/SimpleQueryCondition.java
+    # Child of DocumentSerializationUtils.class
+    - dir: target/classes
+      file: org/mongojack/internal/update/MultiUpdateOperationValue.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/update/MultiUpdateOperationValue.java
+    # Child of DocumentSerializationUtils.class
+    - dir: target/classes
+      file: org/mongojack/internal/update/UpdateOperationValue.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/update/UpdateOperationValue.java
+  - target:
+    - dir: target/classes
+      file: org/mongojack/internal/util/SerializationUtils.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/util/SerializationUtils.java
+  - target:
+    - dir: target/classes
+      file: org/mongojack/internal/ObjectIdDeserializers.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/ObjectIdDeserializers.java
+  - target:
+    - dir: target/classes
+      file: org/mongojack/internal/DBRefDeserializer.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/DBRefDeserializer.java
+    # Child of DBRefDeserializer.class
+    - dir: target/classes
+      file: org/mongojack/JacksonDBCollection.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/JacksonDBCollection.java
+  - target:
+    - dir: target/classes
+      file: org/mongojack/internal/stream/ObjectIdConvertor.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/stream/ObjectIdConvertor.java
+  - target:
+    - dir: target/classes
+      file: org/mongojack/internal/stream/JacksonCodec.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/stream/JacksonCodec.java
+  - target:
+    - dir: target/classes
+      file: org/mongojack/internal/object/BsonObjectGenerator.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/object/BsonObjectGenerator.java
+    # Child of BsonObjectGenerator.class
+    - dir: target/classes
+      file: org/mongojack/internal/util/VersionUtils.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/util/VersionUtils.java
+  - target:
+    - dir: target/classes
+      file: org/mongojack/internal/object/document/DocumentObjectGenerator.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/object/document/DocumentObjectGenerator.java
+  - target:
+    - dir: target/classes
+      file: org/mongojack/internal/object/document/DocumentObjectCursor.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/object/document/DocumentObjectCursor.java
+  - target:
+    - dir: target/classes
+      file: org/mongojack/internal/object/BsonObjectCursor.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/object/BsonObjectCursor.java
+  - target:
+    - dir: target/classes
+      file: org/mongojack/internal/MongoJackInstantDeserializer.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/MongoJackInstantDeserializer.java
+  - target:
+    - dir: target/classes
+      file: org/mongojack/internal/MongoAnnotationIntrospector.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/MongoAnnotationIntrospector.java
+    # Child of MongoAnnotationIntrospector.class
+    - dir: target/classes
+      file: org/mongojack/Id.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/Id.java
+    # Child of MongoAnnotationIntrospector.class
+    - dir: target/classes
+      file: org/mongojack/ObjectId.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/ObjectId.java
+  - target:
+    - dir: target/classes
+      file: org/mongojack/internal/util/JacksonAccessor.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/util/JacksonAccessor.java
+  - target:
+    - dir: target/classes
+      file: org/mongojack/internal/stream/JacksonDBEncoder.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/stream/JacksonDBEncoder.java
+  - target:
+    - dir: target/classes
+      file: org/mongojack/internal/util/IdHandler.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/util/IdHandler.java
+    # Child of IdHandler.class
+    - dir: target/classes
+      file: org/mongojack/internal/object/BsonObjectTraversingParser.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/object/BsonObjectTraversingParser.java
+  - target:
+    - dir: target/classes
+      file: org/mongojack/internal/util/IdHandlerFactory.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/util/IdHandlerFactory.java
+  - target:
+    - dir: target/classes
+      file: org/mongojack/internal/stream/JacksonDecoder.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/stream/JacksonDecoder.java
+  - target:
+    - dir: target/classes
+      file: org/mongojack/MapReduce.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/MapReduce.java
+  - target:
+    - dir: target/classes
+      file: org/mongojack/internal/ObjectIdSerializer.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/ObjectIdSerializer.java
+  - target:
+    - dir: target/classes
+      file: org/mongojack/internal/EmbeddedObjectSerializer.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/EmbeddedObjectSerializer.java
+    # Child of EmbeddedObjectSerializer.class
+    - dir: target/classes
+      file: org/mongojack/internal/object/document/DocumentObjectGenerator.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/object/document/DocumentObjectGenerator.java
+    # Child of EmbeddedObjectSerializer.class
+    - dir: target/classes
+      file: org/mongojack/internal/stream/DBEncoderBsonGenerator.class
+      sourceDir: src/main/java
+      sourceFile: org/mongojack/internal/stream/DBEncoderBsonGenerator.java
